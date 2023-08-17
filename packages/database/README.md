@@ -1,3 +1,3 @@
-# Midjourney Client UI
+# Foshill db
 
 All db-related logic

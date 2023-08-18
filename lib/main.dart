@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:foshill/src/core/utils/extensions/context_extension.dart';
 
 import 'src/core/utils/logger.dart';
 import 'src/feature/app/logic/app_runner.dart';
@@ -53,9 +54,13 @@ class SampleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Hello')),
-        body: const Column(
-          children: [Text('test')],
+        appBar: AppBar(
+          title: Text(context.stringOf().appTitle),
+        ),
+        body: Column(
+          children: [
+            Text(context.stringOf().samplePlaceholder('Sample')),
+          ],
         ),
       );
 }

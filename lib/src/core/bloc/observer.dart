@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '/src/core/utils/logger.dart';
 
 /// Observing the behavior of [Bloc] instances.
-class FoshillBlocObserver extends BlocObserver {
+class AppBlocObserver extends BlocObserver {
   @override
   void onCreate(BlocBase bloc) {
     final buffer = StringBuffer()
@@ -36,11 +36,7 @@ class FoshillBlocObserver extends BlocObserver {
   }
 
   @override
-  void onError(
-    BlocBase<Object?> bloc,
-    Object error,
-    StackTrace stackTrace,
-  ) {
+  void onError(BlocBase<Object?> bloc, Object error, StackTrace stackTrace) {
     logger.error(
       'Bloc: ${bloc.runtimeType}',
       error: error,

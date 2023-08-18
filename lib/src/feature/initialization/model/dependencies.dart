@@ -3,7 +3,7 @@ import 'package:database/database.dart';
 /// Dependencies container.
 abstract interface class Dependencies {
   /// Database
-  abstract final FoshillDatabase database;
+  abstract final AppDatabase database;
 
   /// Freeze dependencies, so they cannot be modified.
   Dependencies freeze();
@@ -16,7 +16,7 @@ final class Dependencies$Mutable implements Dependencies {
   Dependencies$Mutable();
 
   @override
-  late FoshillDatabase database;
+  late AppDatabase database;
 
   @override
   Dependencies freeze() => _Dependencies$Immutable(database: database);
@@ -29,7 +29,7 @@ final class _Dependencies$Immutable implements Dependencies {
   const _Dependencies$Immutable({required this.database});
 
   @override
-  final FoshillDatabase database;
+  final AppDatabase database;
 
   @override
   Dependencies freeze() => this;

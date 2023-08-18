@@ -1,0 +1,11 @@
+{
+  
+  "appTitle": "Foshill",
+  "@appTitle": {
+    "description": "Заголовок приложения"
+  },
+  "samplePlaceholder": "Пример заглушки {value}",
+  "@samplePlaceholder": {
+    "description": "Пример заглушки"
+  }
+}

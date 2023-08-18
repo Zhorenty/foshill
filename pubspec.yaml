@@ -23,6 +23,9 @@ dependencies:
   # BLoC
   flutter_bloc: ^8.1.3
 
+  # Router
+  go_router: ^10.0.0
+
   # Persisting
   drift: 2.9.0
   sqlite3_flutter_libs: 0.5.15
@@ -34,7 +37,6 @@ dependencies:
   bloc_concurrency: 0.2.2
   path: ^1.8.2
   path_provider: ^2.0.12
-
 
   # Local packages
   database:

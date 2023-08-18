@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/generated_localizations.dart';
 
 typedef GeneratedLocalization = GeneratedLocalizations;
 
-/// A class which is responsible for providing the localization.
+/// Localization of this application.
 ///
 /// [AppLocalization] is a wrapper around [GeneratedLocalizations].
 class AppLocalization {

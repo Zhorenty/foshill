@@ -9,8 +9,8 @@ typedef StepAction = FutureOr<void>? Function(InitializationProgress progress);
 /// Handles initialization steps.
 mixin InitializationSteps {
   final initializationSteps = <String, StepAction>{
-    'Drift Database': (progress) {
-      final database = FoshillDatabase(name: 'foshill');
+    'Database': (progress) {
+      final database = AppDatabase(name: 'foshill');
       return progress.dependencies.database = database;
     }
   };

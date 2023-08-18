@@ -21,7 +21,7 @@ class AppRunner with InitializationSteps, InitializationProcessor {
       ..deferFirstFrame();
     FlutterError.onError = logger.logFlutterError;
     PlatformDispatcher.instance.onError = logger.logPlatformDispatcherError;
-    Bloc.observer = FoshillBlocObserver();
+    Bloc.observer = AppBlocObserver();
     Bloc.transformer = sequential();
 
     final result = await processInitialization(

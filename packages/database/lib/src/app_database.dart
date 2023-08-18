@@ -4,12 +4,11 @@ import 'package:database/src/connection/open_connection_stub.dart'
     if (dart.library.html) 'package:database/src/connection/open_connection_html.dart'
     as connection;
 
-part 'foshill_database.g.dart';
+part 'app_database.g.dart';
 
 @DriftDatabase(include: {'tables/clothes.drift'})
-class FoshillDatabase extends _$FoshillDatabase {
-  FoshillDatabase({required String name})
-      : super(connection.openConnection(name));
+class AppDatabase extends _$AppDatabase {
+  AppDatabase({required String name}) : super(connection.openConnection(name));
 
   @override
   int get schemaVersion => 1;

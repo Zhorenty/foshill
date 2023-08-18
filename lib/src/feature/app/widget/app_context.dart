@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '/src/core/localization/app_localization.dart';
 import '/src/core/router/router.dart';
+import '/src/core/theme/theme.dart';
 
 /// Widget which is responsible for providing the app context.
 class AppContext extends StatefulWidget {
@@ -19,8 +20,8 @@ class _AppContextState extends State<AppContext> {
       routerConfig: router.router,
       supportedLocales: AppLocalization.supportedLocales,
       localizationsDelegates: AppLocalization.localizationsDelegates,
-      // theme: $lightThemeData,
-      // darkTheme: $darkThemeData,
+      theme: $lightThemeData,
+      darkTheme: $darkThemeData,
       locale: const Locale('ru', 'RU'),
     );
   }

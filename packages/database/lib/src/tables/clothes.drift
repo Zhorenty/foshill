@@ -1,7 +1,7 @@
 CREATE TABLE clothes (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    color TEXT NOT NULL,
     name TEXT NOT NULL,
     description TEXT,
-    color TEXT NOT NULL,
-    price TEXT NOT NULL
+    price TEXT NOT NULL,
 );

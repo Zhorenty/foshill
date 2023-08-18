@@ -16,6 +16,7 @@ enum LoggerLevel implements Comparable<LoggerLevel> {
 
   const LoggerLevel._(this.value);
 
+  /// Number of [LoggerLevel].
   final int value;
 
   @override

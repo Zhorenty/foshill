@@ -1,64 +1,61 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
+import 'src/core/utils/logger.dart';
+import 'src/feature/app/logic/app_runner.dart';
+import 'src/feature/initialization/logic/initialization_processor.dart';
+import 'src/feature/initialization/model/dependencies.dart';
+import 'src/feature/initialization/model/initialization_hook.dart';
+
 void main() {
-  runApp(const MyApp());
+  final hook = InitializationHook.setup(
+    onInitializing: _onInitializing,
+    onInitialized: _onInitialized,
+    onError: _onError,
+    onInit: _onInit,
+  );
+  logger.runLogging(
+    () {
+      runZonedGuarded(
+        () => AppRunner().initializeAndRun(hook),
+        logger.logZoneError,
+      );
+    },
+    const LogOptions(),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+void _onInitializing(InitializationStepInfo info) {
+  final percentage = ((info.step / info.stepsCount) * 100).toInt();
+  logger.info(
+    'Inited ${info.stepName} in ${info.msSpent} ms | '
+    'Progress: $percentage%',
+  );
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
+void _onInitialized(InitializationResult result) {
+  logger.info('Initialization completed successfully in ${result.msSpent} ms');
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+void _onError(int step, Object error) {
+  logger.error('Initialization failed on step $step', error: error);
+}
 
-  void _incrementCounter() => setState(() => _counter++);
+void _onInit() {
+  logger.info('Initialization started');
+}
+
+/// TODO: Temporary placeholder, should be remove at some point
+class SampleScreen extends StatelessWidget {
+  /// {@macro sample_page}
+  const SampleScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text('Hello')),
+        body: const Column(
+          children: [Text('test')],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
+      );
 }

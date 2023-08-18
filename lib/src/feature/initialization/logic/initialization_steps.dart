@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:database/database.dart';
 
 import '../model/initialization_progress.dart';
-import '../../../core/router/router.dart';
+import '/src/core/router/router.dart';
 
 typedef StepAction = FutureOr<void>? Function(InitializationProgress progress);
 

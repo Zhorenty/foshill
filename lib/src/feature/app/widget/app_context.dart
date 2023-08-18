@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/router/router.dart';
 import '/src/core/localization/app_localization.dart';
+import '/src/core/router/router.dart';
 
 /// Widget which is responsible for providing the app context.
 class AppContext extends StatefulWidget {

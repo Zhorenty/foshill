@@ -1,6 +1,6 @@
 import 'package:database/database.dart';
 
-import '../../../core/router/router.dart';
+import '/src/core/router/router.dart';
 
 /// Dependencies container.
 abstract interface class Dependencies {

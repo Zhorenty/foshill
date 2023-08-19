@@ -1,0 +1,5 @@
+{
+  "appTitle": "Foshill",
+  "unknownError": "Неизвестная ошибка: {value}",
+  "exceptionOccurred": "Возникло исключение: {value}"
+}

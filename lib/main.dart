@@ -1,53 +1,19 @@
-import 'dart:async';
+import '/runner_unsupported.dart'
+    if (dart.library.html) 'runner_web.dart'
+    if (dart.library.io) 'runner_io.dart' as runner;
 
 import 'package:flutter/material.dart';
 
-import 'src/core/utils/extensions/context_extension.dart';
-import 'src/core/utils/logger.dart';
-import 'src/feature/app/logic/app_runner.dart';
-import 'src/feature/initialization/logic/initialization_processor.dart';
-import 'src/feature/initialization/model/dependencies.dart';
-import 'src/feature/initialization/model/initialization_hook.dart';
+import '/src/core/theme/theme.dart';
+import '/src/core/utils/extensions/context_extension.dart';
 
-void main() {
-  final hook = InitializationHook.setup(
-    onInitializing: _onInitializing,
-    onInitialized: _onInitialized,
-    onError: _onError,
-    onInit: _onInit,
-  );
-  logger.runLogging(
-    () {
-      runZonedGuarded(
-        () => AppRunner().initializeAndRun(hook),
-        logger.logZoneError,
-      );
-    },
-    const LogOptions(),
-  );
-}
+/// Entry point of application.
+Future<void> main() async => runner.run();
 
-void _onInitializing(InitializationStepInfo info) {
-  final percentage = ((info.step / info.stepsCount) * 100).toInt();
-  logger.info(
-    'Inited ${info.stepName} in ${info.msSpent} ms | '
-    'Progress: $percentage%',
-  );
-}
-
-void _onInitialized(InitializationResult result) {
-  logger.info('Initialization completed successfully in ${result.msSpent} ms');
-}
-
-void _onError(int step, Object error) {
-  logger.error('Initialization failed on step $step', error: error);
-}
-
-void _onInit() {
-  logger.info('Initialization started');
-}
-
-/// TODO: Temporary placeholder, should be remove at some point
+/// {@template sample_page}
+/// SamplePage widget
+/// {@endtemplate}
+// TODO: Temporary placeholder, should be remove at some point
 class SampleScreen extends StatelessWidget {
   /// {@macro sample_page}
   const SampleScreen({super.key});
@@ -55,11 +21,16 @@ class SampleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(context.stringOf().appTitle),
+          title: Text(
+            context.stringOf().appTitle,
+            style: context.fonts.bodyMedium?.copyWith(
+              color: context.colors.primary,
+            ),
+          ),
         ),
         body: Column(
           children: [
-            Text(context.stringOf().samplePlaceholder('Sample')),
+            Text(context.stringOf().unknownError('-Пример-')),
           ],
         ),
       );

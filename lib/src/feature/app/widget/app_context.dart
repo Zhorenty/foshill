@@ -20,6 +20,7 @@ class _AppContextState extends State<AppContext> {
       routerConfig: router.router,
       supportedLocales: AppLocalization.supportedLocales,
       localizationsDelegates: AppLocalization.localizationsDelegates,
+      themeMode: ThemeMode.light,
       theme: $lightThemeData,
       darkTheme: $darkThemeData,
       locale: const Locale('ru', 'RU'),

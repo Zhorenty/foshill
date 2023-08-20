@@ -1,5 +1,5 @@
 {
-  "appTitle": "Foshill",
+  "appTitle": "foshill",
   "unknownError": "Unknown error: {value}",
   "exceptionOccurred": "Exception occurred: {value}"
 }

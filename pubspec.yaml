@@ -63,7 +63,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/launcher_icon.png"
+  image_path: "assets/icons/launcher_icon.png"
 
 flutter_native_splash:
   image: assets/images/splash.png
@@ -74,6 +74,14 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icons/
+  fonts:
+    - family: Playfair
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/PlayfairDisplay-Bold.ttf
+          weight: 700
 
   # Enable generation of localized Strings from arb files.
   generate: true

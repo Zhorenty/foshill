@@ -24,7 +24,10 @@ class SampleScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             context.stringOf().appTitle,
-            style: context.fonts.displayMedium?.copyWith(),
+            style: context.fonts.displaySmall?.copyWith(
+              color: context.colors.onBackground,
+              fontFamily: 'Playfair',
+            ),
           ),
         ),
         body: Column(

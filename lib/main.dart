@@ -20,12 +20,11 @@ class SampleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        backgroundColor: const Color(0xFFD9D9D9),
         appBar: AppBar(
           title: Text(
             context.stringOf().appTitle,
-            style: context.fonts.bodyMedium?.copyWith(
-              color: context.colors.primary,
-            ),
+            style: context.fonts.displayMedium?.copyWith(),
           ),
         ),
         body: Column(

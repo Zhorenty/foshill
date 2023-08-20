@@ -24,6 +24,14 @@ class AppRunner with InitializationSteps, InitializationProcessor {
     Bloc.observer = AppBlocObserver();
     Bloc.transformer = sequential();
 
+    // Splash screen test
+    //
+    // Future initialization(BuildContext ctx) async {
+    //   await Future.delayed(const Duration(seconds: 10));
+    // }
+
+    // FlutterNativeSplash.removeAfter(initialization);
+
     final result = await processInitialization(
       steps: initializationSteps,
       hook: hook,

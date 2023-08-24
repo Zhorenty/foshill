@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '/src/common/assets/generated/fonts.gen.dart';
 import '/src/common/utils/extensions/context_extension.dart';
 import '/src/feature/wardrobe/bloc/wardrobe_bloc.dart';
 import '/src/feature/wardrobe/bloc/wardrobe_state.dart';
@@ -21,13 +22,13 @@ class WardrobeScreen extends StatelessWidget {
           context.stringOf().appTitle,
           style: context.fonts.headlineLarge?.copyWith(
             color: context.colors.onBackground,
-            fontFamily: 'Playfair',
+            fontFamily: FontFamily.playfair,
           ),
         ),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: CircleAvatar(),
+            padding: const EdgeInsets.only(right: 16),
+            child: CircleAvatar(backgroundColor: context.colors.secondary),
           ),
         ],
       ),
@@ -49,7 +50,7 @@ class WardrobeScreen extends StatelessWidget {
                   child: Text(
                     context.stringOf().wardrobeEmpty,
                     style: context.fonts.headlineMedium?.copyWith(
-                      fontFamily: 'Playfair',
+                      fontFamily: FontFamily.playfair,
                     ),
                   ),
                 ),

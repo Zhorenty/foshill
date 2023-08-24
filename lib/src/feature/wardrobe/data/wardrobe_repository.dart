@@ -1,10 +1,10 @@
-import '/src/feature/wardrobe/model/cloth.dart';
+import '/src/feature/wardrobe/model/cloth_entity.dart';
 import 'wardrobe_data_source.dart';
 
 /// Wardrobe repository which handles data operations.
 abstract class WardrobeRepository {
   /// Retrieves all clothes.
-  Future<List<Cloth>> getAllClothes();
+  Future<List<ClothEntity>> getAllClothes();
 }
 
 /// Wardrobe repository implementation.
@@ -15,11 +15,11 @@ class WardrobeRepositoryImpl implements WardrobeRepository {
   final WardrobeDataSource _dataSource;
 
   @override
-  Future<List<Cloth>> getAllClothes() async {
+  Future<List<ClothEntity>> getAllClothes() async {
     final history = await _dataSource.getAllClothes();
     return history
         .map(
-          (dto) => Cloth(
+          (dto) => ClothEntity(
             id: dto.id,
             type: ClothType.fromString(dto.clothType),
             name: dto.name,

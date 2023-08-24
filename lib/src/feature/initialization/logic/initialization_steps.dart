@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:database/database.dart';
 
-import '../model/initialization_progress.dart';
-import '/src/core/router/router.dart';
+import '/src/common/router/router.dart';
+import '/src/feature/initialization/model/initialization_progress.dart';
+import '/src/feature/wardrobe/data/wardrobe_data_source.dart';
+import '/src/feature/wardrobe/data/wardrobe_repository.dart';
 
 typedef StepAction = FutureOr<void>? Function(InitializationProgress progress);
 
@@ -17,6 +19,12 @@ mixin InitializationSteps {
     'Database': (progress) {
       final database = AppDatabase(name: 'foshill');
       return progress.dependencies.database = database;
+    },
+    'Wardrobe repository': (progress) {
+      final wardrobeRepository = WardrobeRepositoryImpl(
+        WardrobeDao(progress.dependencies.database),
+      );
+      return progress.dependencies.wardrobeRepository = wardrobeRepository;
     }
   };
 }

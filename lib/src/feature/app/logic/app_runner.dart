@@ -4,9 +4,9 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../widget/app.dart';
-import '/src/core/bloc/observer.dart';
-import '/src/core/utils/logger.dart';
+import '../../../common/bloc/observer.dart';
+import '../../../common/utils/logger.dart';
+import '/src/feature/app/widget/app.dart';
 import '/src/feature/initialization/logic/initialization_processor.dart';
 import '/src/feature/initialization/logic/initialization_steps.dart';
 import '/src/feature/initialization/model/initialization_hook.dart';

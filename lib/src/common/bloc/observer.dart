@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '/src/core/utils/logger.dart';
+import '/src/common/utils/logger.dart';
 
 /// Observing the behavior of [Bloc] instances.
 class AppBlocObserver extends BlocObserver {

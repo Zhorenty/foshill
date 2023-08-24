@@ -1,14 +1,18 @@
 import 'package:database/database.dart';
 
-import '/src/core/router/router.dart';
+import '/src/common/router/router.dart';
+import '/src/feature/wardrobe/data/wardrobe_repository.dart';
 
 /// Dependencies container.
 abstract interface class Dependencies {
-  /// App router
+  /// App router.
   abstract final AppRouter router;
 
-  /// Database
+  /// Database.
   abstract final AppDatabase database;
+
+  /// Wardrobe repository.
+  abstract final WardrobeRepository wardrobeRepository;
 
   /// Freeze dependencies, so they cannot be modified.
   Dependencies freeze();
@@ -27,9 +31,13 @@ final class Dependencies$Mutable implements Dependencies {
   late AppDatabase database;
 
   @override
+  late WardrobeRepository wardrobeRepository;
+
+  @override
   Dependencies freeze() => _Dependencies$Immutable(
         database: database,
         router: router,
+        wardrobeRepository: wardrobeRepository,
       );
 }
 
@@ -37,13 +45,20 @@ final class Dependencies$Mutable implements Dependencies {
 ///
 /// Used to store dependencies.
 final class _Dependencies$Immutable implements Dependencies {
-  const _Dependencies$Immutable({required this.database, required this.router});
+  const _Dependencies$Immutable({
+    required this.database,
+    required this.router,
+    required this.wardrobeRepository,
+  });
 
   @override
   final AppRouter router;
 
   @override
   final AppDatabase database;
+
+  @override
+  final WardrobeRepository wardrobeRepository;
 
   @override
   Dependencies freeze() => this;

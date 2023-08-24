@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// TODO: Might be deprecated
 /// Container for all the child's.
 abstract class ChildContainer {
   Widget? get child;

@@ -1,4 +1,4 @@
-import '../logic/initialization_processor.dart';
+import '/src/feature/initialization/logic/initialization_processor.dart';
 import 'dependencies.dart';
 
 /// A hook for the initialization process.

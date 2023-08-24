@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'src/core/utils/logger.dart';
+import 'src/common/utils/logger.dart';
 import 'src/feature/app/logic/app_runner.dart';
 import 'src/feature/initialization/logic/initialization_processor.dart';
 import 'src/feature/initialization/model/dependencies.dart';

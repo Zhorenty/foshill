@@ -1,6 +1,6 @@
-import '../model/dependencies.dart';
-import '../model/initialization_hook.dart';
-import '../model/initialization_progress.dart';
+import '/src/feature/initialization/model/dependencies.dart';
+import '/src/feature/initialization/model/initialization_hook.dart';
+import '/src/feature/initialization/model/initialization_progress.dart';
 import 'initialization_steps.dart';
 
 /// Handles the initialization process.

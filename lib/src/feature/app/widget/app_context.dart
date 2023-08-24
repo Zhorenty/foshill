@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '/src/core/localization/app_localization.dart';
-import '/src/core/router/router.dart';
-import '/src/core/theme/theme.dart';
+import '/src/common/localization/app_localization.dart';
+import '/src/common/router/router.dart';
+import '/src/common/theme/theme.dart';
 
+/// {@template app_context}
 /// Widget which is responsible for providing the app context.
+/// {@endtemplate}
 class AppContext extends StatefulWidget {
+  /// {@macro app_context}
   const AppContext({super.key});
 
   @override

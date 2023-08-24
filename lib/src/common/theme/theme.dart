@@ -14,17 +14,15 @@ final $darkThemeData = ThemeData(
   useMaterial3: true,
 );
 
-final lightColorScheme = ColorScheme.fromSeed(seedColor: Colors.black);
+final lightColorScheme = ColorScheme.fromSeed(
+  seedColor: const Color(0xFFFFFFFF),
+  primary: const Color(0xFFFFFFFF),
+  secondary: const Color(0xFFD9D9D9),
+  onBackground: const Color(0xFF000000),
+);
 
 final darkColorScheme = ColorScheme.fromSeed(
+  /// TODO(zhorenty): Implement dark theme
   seedColor: Colors.black,
   brightness: Brightness.dark,
 );
-
-extension ThemeX on BuildContext {
-  /// Returns [ColorScheme] from [BuildContext]
-  ColorScheme get colors => Theme.of(this).colorScheme;
-
-  /// Returns [TextTheme] from [BuildContext].
-  TextTheme get fonts => Theme.of(this).textTheme;
-}

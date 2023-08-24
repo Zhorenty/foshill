@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '/src/common/utils/pattern_match.dart';
-import '/src/feature/wardrobe/model/cloth.dart';
+import '/src/feature/wardrobe/model/cloth_entity.dart';
 
 /// Wardrobe event.
 sealed class WardrobeState extends _$WardrobeStateBase {
@@ -12,13 +12,13 @@ sealed class WardrobeState extends _$WardrobeStateBase {
 
   /// Wardrobe is idle.
   const factory WardrobeState.idle({
-    List<Cloth> clothes,
+    List<ClothEntity> clothes,
     String? error,
   }) = _WardrobeState$Idle;
 
   /// Wardrobe is loaded.
   const factory WardrobeState.loaded({
-    required List<Cloth> clothes,
+    required List<ClothEntity> clothes,
     String? error,
   }) = _WardrobeState$Loaded;
 }
@@ -45,7 +45,7 @@ abstract base class _$WardrobeStateBase {
   const _$WardrobeStateBase({required this.clothes, this.error});
 
   @nonVirtual
-  final List<Cloth> clothes;
+  final List<ClothEntity> clothes;
 
   @nonVirtual
   final String? error;

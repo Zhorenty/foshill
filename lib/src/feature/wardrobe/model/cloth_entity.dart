@@ -25,8 +25,8 @@ enum ClothType {
 
 /// Wardrobe item.
 @immutable
-base class Cloth {
-  const Cloth({
+base class ClothEntity {
+  const ClothEntity({
     required this.id,
     required this.type,
     required this.name,
@@ -56,7 +56,7 @@ base class Cloth {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Cloth &&
+      other is ClothEntity &&
           runtimeType == other.runtimeType &&
           id == other.id &&
           type == other.type &&

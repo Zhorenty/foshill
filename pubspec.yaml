@@ -48,6 +48,10 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # TODO: implement dartdoc in CI.
+  # Documentation
+  dartdoc: ^6.2.2
+
   # Codegen
   build_runner: 2.4.6
   drift_dev: 2.9.0

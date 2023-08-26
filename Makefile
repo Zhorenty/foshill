@@ -9,7 +9,7 @@ analyze:
 	flutter analyze
 
 format:
-	dart format --set-exit-if-changed	
+	dart format lib --set-exit-if-changed
 
 runner:
 	flutter pub get

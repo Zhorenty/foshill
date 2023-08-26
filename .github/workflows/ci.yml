@@ -126,10 +126,7 @@ jobs:
       with:
         flutter-version: ${{ env.FLUTTER_VER }}
 
-    - name: Install dependencies
-      run: flutter pub get
-
-    - name: Make codegen
+    - name: Make dependencies and codegen
       run: make runner
       
     - name: Build APK

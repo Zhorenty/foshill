@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import '/src/common/utils/pattern_match.dart';
 import '/src/feature/wardrobe/model/cloth_entity.dart';
 
-/// Wardrobe event.
+/// Wardrobe state.
 sealed class WardrobeState extends _$WardrobeStateBase {
   const WardrobeState._({
     required super.clothes,

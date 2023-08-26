@@ -41,7 +41,6 @@ dependencies:
   # Local packages
   database:
     path: packages/database
-  extended_image: ^8.0.2
 
 dev_dependencies:
   # Testing
@@ -87,7 +86,7 @@ flutter:
   generate: true
 
 flutter_gen:
-  output: lib/src/core/assets/generated
+  output: lib/src/common/assets/generated
   line_length: 80
 
 

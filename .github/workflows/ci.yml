@@ -45,7 +45,7 @@ jobs:
           channel: stable
           cache: true
 
-      - run: make get
+      - run: make runner
 
       - run: make analyze
 
@@ -78,8 +78,8 @@ jobs:
         with:
           channel: 'stable'
       
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Make dependencies and codegen
+        run: make runner
       
       - name: Build iOS
         run: flutter build ios

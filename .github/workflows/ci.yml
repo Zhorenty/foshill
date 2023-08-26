@@ -130,7 +130,7 @@ jobs:
       run: flutter pub get
 
     - name: Make codegen
-      run: flutter make runner
+      run: make runner
       
     - name: Build APK
       run: flutter build apk

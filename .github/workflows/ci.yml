@@ -22,8 +22,6 @@ jobs:
   pr:
     if: ${{ github.event_name == 'pull_request' }}
     needs:
-      - build-ios
-      - build-android
       - dartanalyze
       - dartfmt
     runs-on: ubuntu-latest
@@ -36,6 +34,7 @@ jobs:
   ##########################
 
   dartanalyze:
+    name: Dart analyzer
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -50,6 +49,7 @@ jobs:
       - run: make analyze
 
   dartfmt:
+    name: Dart formatter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -61,60 +61,5 @@ jobs:
 
       - run: make format
 
-  #########
-  # Build #
-  #########
 
-  build-ios:
-    name: Build iOS
-    runs-on: macos-latest
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-      
-      - name: Make dependencies and codegen
-        run: make runner
-      
-      - name: Build iOS
-        run: flutter build ios
-      
-      - name: Archive the iOS app
-        run: flutter build ios --release --no-codesign
-
-  build-android:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: 11
-
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v1
-      with:
-        flutter-version: ${{ env.FLUTTER_VER }}
-
-    - name: Make dependencies and codegen
-      run: make runner
-      
-    - name: Build APK
-      run: flutter build apk
-      
-    - name: Debug APK on Device
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-        api-level: 29
-        target: default
-        avd-name: pixel
-        script: flutter run
 

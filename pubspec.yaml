@@ -16,7 +16,7 @@ dependencies:
     sdk: flutter
 
   # Localizations
-  intl: 0.18.0
+  intl: ^0.18.0
   flutter_localizations:
     sdk: flutter
 
@@ -47,6 +47,10 @@ dev_dependencies:
   # Testing
   flutter_test:
     sdk: flutter
+
+  # TODO: implement dartdoc in CI.
+  # Documentation
+  dartdoc: ^6.2.2
 
   # Codegen
   build_runner: 2.4.6
@@ -87,7 +91,7 @@ flutter:
   generate: true
 
 flutter_gen:
-  output: lib/src/core/assets/generated
+  output: lib/src/common/assets/generated
   line_length: 80
 
 
